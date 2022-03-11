@@ -21,11 +21,9 @@ function indexContato($idPessoa = null) {
 function addContato() {
 
     if (!empty($_POST['contato'])) {
-
         $contato = $_POST['contato'];
-
-        save('contatos', $contato);
-        header('location: ../../view/pessoas/index.php');
+        save('contato', $contato);
+        header("location: ../../view/pessoas/index.php?id=$idPessoa");
     }
 }
 
@@ -39,12 +37,12 @@ function editContato() {
 
             $contato = $_POST['contato'];
 
-            update('contatos', $id, $contato);
+            update('contato', $id, $contato);
             header('location: ../../view/pessoas/index.php');
         } else {
 
             global $contato;
-            $contato = find('contatos', $id);
+            $contato = find('contato', $id);
         }
     } else {
         header('location: ../../view/pessoas/index.php');
@@ -54,7 +52,7 @@ function editContato() {
 function deleteContato($id = null) {
 
     global $contato;
-    $contato = remove('contatos', $id);
+    $contato = remove('contato', $id);
 
     header('location: ../../view/pessoas/index.php');
 }
