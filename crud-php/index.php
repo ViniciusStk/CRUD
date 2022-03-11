@@ -3,7 +3,7 @@
 
 <!-- Importa o header -->
 <?php include(HEADER_TEMPLATE); ?>
-<?php include('/view/utilitarios/modal.php'); ?>
+<?php include('view/utilitarios/modal.php'); ?>
 <?php $db = open_database(); ?>
 
 <h1>Dashboard</h1>
@@ -14,7 +14,7 @@
 <div class="row">
     <!-- btn add pessoas -->
     <div class="col-xs-6 col-sm-3 col-md-2">
-        <a href="pessoas/add.php" class="btn btn-primary">
+        <a href="view/pessoas/add.php" class="btn btn-primary">
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <i class="fa fa-plus fa-5x"></i>
@@ -27,7 +27,7 @@
     </div>
     <!-- btn consulta pessoas -->
     <div class="col-xs-6 col-sm-3 col-md-2">
-        <a href="pessoas" class="btn btn-default">
+        <a href="view/pessoas/index.php" class="btn btn-default">
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <i class="fa fa-user fa-5x"></i>

@@ -1,6 +1,8 @@
 <?php
 require_once('../../model/pessoas/functions.php');
+require_once('../../model/contato/functions.php');
 view($_GET['id']);
+indexContato($_GET['id']);
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -20,12 +22,47 @@ view($_GET['id']);
         <dd><?php echo $pessoa['cpf']; ?></dd>
 
     </dl>
-
     <div id="actions" class="row">
         <div class="col-md-12">
             <a href="edit.php?id=<?php echo $pessoa['id']; ?>" class="btn btn-primary">Editar</a>
             <a href="index.php" class="btn btn-default">Voltar</a>
         </div>
     </div>
+
+<hr />
+
+    <table class="table table-hover">
+        <thead>
+        <h3>Contatos</h3>
+        <tr>
+            <th>ID</th>
+            <th width="30%">Tipo</th>
+            <th>Descrição</th>
+            <th>Opções</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php if ($contatos) : ?>
+            <?php foreach ($contatos as $contato) : ?>
+                <tr>
+                    <td><?php echo $contato['id']; ?></td>
+                    <td><?php echo $contato['tipo']; ?></td>
+                    <td><?php echo $contato['descricao']; ?></td>
+                    <td class="actions text-right">
+                        <a href="../contato/edit.php?id=<?php echo $pessoa['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-customer="<?php echo $pessoa['id']; ?>">
+                            <i class="fa fa-trash"></i> Excluir
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <tr>
+                <td colspan="6">Nenhum registro encontrado.</td>
+            </tr>
+        <?php endif; ?>
+        </tbody>
+    </table>
+
 
 <?php include(FOOTER_TEMPLATE); ?>

@@ -41,18 +41,19 @@ function close_database($conn) {
  * @param $id - id do item na tabela
  * @return array|false|mixed|null
  */
-function find($table = null, $id = null ) {
+function find($table = null, $id = null, $where = "id" ) {
 
     $database = open_database();
     $found = null;
-
     try {
         if ($id) {
-            $sql = " SELECT * FROM " . $table . " WHERE id = " . $id;
+            $sql = " SELECT * FROM " . $table . " WHERE " . $where . " = " . $id;
             $result = $database->query($sql);
 
-            if($result->num_rows > 0) {
+            if($result->num_rows == 1 ) {
                 $found = $result->fetch_assoc();
+            } else {
+                $found = $result->fetch_all(MYSQLI_ASSOC);
             }
         } else {
 

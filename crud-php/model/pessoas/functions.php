@@ -61,5 +61,5 @@ function delete($id = null) {
     global $pessoa;
     $pessoa = remove('pessoas', $id);
 
-//    header('location: ../../view/pessoas/index.php');
+    header('location: ../../view/pessoas/index.php');
 }

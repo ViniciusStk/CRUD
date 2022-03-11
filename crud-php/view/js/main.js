@@ -8,5 +8,5 @@ $('#delete-modal').on('show.bs.modal', function (event) {
 
     var modal = $(this);
     modal.find('.modal-title').text('Excluir Pessoa #' + id);
-    modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+    modal.find('#confirm').attr('href', '../pessoas/delete.php?id=' + id);
 })
