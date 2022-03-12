@@ -55,7 +55,7 @@ function editContato() {
         } else {
 
             global $contato;
-            $contato = find('contato', $id);
+            $contato = find('contato', $id)['found'];
         }
     } else {
         header('location: ../../view/pessoas/view.php?id=' . $_GET['id']);

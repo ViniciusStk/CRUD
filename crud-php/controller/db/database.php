@@ -69,9 +69,7 @@ function find($table = null, $id = null, $where = "id" ) {
         $_SESSION['type'] = 'danger';
     }
     close_database($database);
-    //Adiciona o numero de linhas ao found caso for utilizado por contato
-    if ($where == 'idPessoa' ? $found = ['found'=>$found, 'rows'=>$result->num_rows] : $where )
-    return $found;
+    return ['found'=>$found, 'rows'=>$result->num_rows];
 }
 
 /**
@@ -82,7 +80,7 @@ function find($table = null, $id = null, $where = "id" ) {
  * @return array|false|mixed|null
  */
 function find_all( $table ) {
-    return find($table);
+    return find($table)['found'];
 }
 
 /**

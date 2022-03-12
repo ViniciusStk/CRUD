@@ -44,7 +44,7 @@ function edit() {
         } else {
 
             global $pessoa;
-            $pessoa = find('pessoas', $id);
+            $pessoa = find('pessoas', $id)['found'];
         }
     } else {
         header('location: ../../view/pessoas/index.php');
@@ -53,7 +53,7 @@ function edit() {
 
 function view ($id) {
     global $pessoa;
-    $pessoa = find('pessoas', $id);
+    $pessoa = find('pessoas', $id)['found'];
 }
 
 function delete($id = null) {
@@ -61,5 +61,5 @@ function delete($id = null) {
     global $pessoa;
     $pessoa = remove('pessoas', $id);
 
-    header('location: ../../view/pessoas/index.php');
+//    header('location: ../../view/pessoas/index.php');
 }
