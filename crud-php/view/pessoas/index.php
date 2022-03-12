@@ -60,5 +60,5 @@ index();
         <?php endif; ?>
         </tbody>
     </table>
-
+<?php include('../utilitarios/modal.php'); ?>
 <?php include(FOOTER_TEMPLATE); ?>
