@@ -33,32 +33,32 @@ function addContato() {
     if (!empty($_POST['contato'])) {
         $contato = $_POST['contato'];
         save('contato', $contato);
-        // -------------- AJUSTAR -------------------
-        // NÃO ESTA RETORNANDO A VIEW PESSOA CORRETAMENTE
-        header("location: " . $_SERVER['HTTP_REFERER']);
-        // -------------- AJUSTAR -------------------
+        header("location: ../../view/pessoas/view.php?id=" . $_GET['id']);
     }
 }
 
+/**
+ * Função utilizada para editar um contato
+ * @return void
+ */
 function editContato() {
 
-    if (isset($_GET['id'])) {
-
-        $id = $_GET['id'];
+    if (isset($_GET['idContato'])) {
+        $id = $_GET['idContato'];
 
         if (isset($_POST['contato'])) {
 
             $contato = $_POST['contato'];
 
             update('contato', $id, $contato);
-            header('location: ../../view/pessoas/index.php');
+            header('location: ../../view/pessoas/view.php?id=' . $_GET['id']);
         } else {
 
             global $contato;
             $contato = find('contato', $id);
         }
     } else {
-        header('location: ../../view/pessoas/index.php');
+        header('location: ../../view/pessoas/view.php?id=' . $_GET['id']);
     }
 }
 
