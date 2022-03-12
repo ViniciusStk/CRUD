@@ -29,14 +29,14 @@ indexContato($_GET['id']);
         </div>
     </div>
 
-<hr />
-
+    <hr />
+    <!--CONTATOS-->
     <table class="table table-hover">
         <h3>Contatos</h3>
         <div class="row">
             <div class="col-md-12 h2">
                 <a class="btn btn-primary" href="../contato/add.php?id=<?php echo $pessoa['id']; ?>"><i class="fa fa-plus"></i> Novo Contato</a>
-                <a class="btn btn-default" href="index.php"><i class="fa fa-refresh"></i> Atualizar</a>
+                <a class="btn btn-default" href="../pessoas/view.php?id=<?php echo $pessoa['id']; ?>"><i class="fa fa-refresh"></i> Atualizar</a>
             </div>
         </div>
         <thead>
@@ -68,7 +68,6 @@ indexContato($_GET['id']);
             </tr>
         <?php endif; ?>
         </tbody>
-    </table>
-
+    </table><!--!CONTATOS-->
 
 <?php include(FOOTER_TEMPLATE); ?>

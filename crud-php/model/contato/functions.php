@@ -7,23 +7,36 @@ $contatos = null;
 $contato = null;
 
 /**
- * listagem de Pessoas
+ * Função utilizada para o carregamento das telas, colocando os resultados do find em variavel global
+ * para depois ser utilizada em view
+ *
+ * @param $idPessoa - utilizado para montar o where na tabela contato
+ * @return void
  */
 function indexContato($idPessoa = null) {
     global $contatos;
     $contatos = find('contato', $idPessoa, 'idPessoa');
+
+    // ajusta o $contatos de acordo com o necessário, para ser utilizado na view com foreach
+    if($contatos['rows'] == 1){
+        $contatos = [$contatos['found']];
+    } else {
+        $contatos = $contatos['found'];
+    }
 }
 
 /**
- * Cadastro de Pessoas
+ * Cadastro de Contato
  * @return void
  */
 function addContato() {
-
     if (!empty($_POST['contato'])) {
         $contato = $_POST['contato'];
         save('contato', $contato);
-        header("location: ../../view/pessoas/index.php?id=$idPessoa");
+        // -------------- AJUSTAR -------------------
+        // NÃO ESTA RETORNANDO A VIEW PESSOA CORRETAMENTE
+        header("location: " . $_SERVER['HTTP_REFERER']);
+        // -------------- AJUSTAR -------------------
     }
 }
 

@@ -69,6 +69,8 @@ function find($table = null, $id = null, $where = "id" ) {
         $_SESSION['type'] = 'danger';
     }
     close_database($database);
+    //Adiciona o numero de linhas ao found caso for utilizado por contato
+    if ($where == 'idPessoa' ? $found = ['found'=>$found, 'rows'=>$result->num_rows] : $where )
     return $found;
 }
 
@@ -96,7 +98,6 @@ function save($table = null, $data = null) {
 
     $columns = null;
     $values = null;
-
 
     foreach ($data as $key => $value) {
         $columns .= trim($key, "'") . ",";
