@@ -59,7 +59,10 @@ function view ($id) {
 function delete($id = null) {
 
     global $pessoa;
-    $pessoa = remove('pessoas', $id);
+    //remove os contatos antes de remover a pessoa, caso remova como sucesso, então remove a pessoa
+    if(remove("contato", $id, "idPessoa")){
+        $pessoa = remove('pessoas', $id);
+    }
 
-//    header('location: ../../view/pessoas/index.php');
+    header('location: ../../view/pessoas/index.php');
 }

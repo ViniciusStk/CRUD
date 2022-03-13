@@ -162,19 +162,20 @@ function update($table = null, $id = 0, $data = null) {
 }
 
 /**
- *  Remove uma linha de uma tabela pelo ID do registro
+ * @param $table
+ * @param $id
+ * @param $where
+ * @return bool|mysqli_result
  */
-function remove( $table = null, $id = null ) {
+function remove( $table = null, $id = null, $where = 'id' ) {
 
     $database = open_database();
 
     try {
         if ($id) {
-
-            $sql = "DELETE FROM " . $table . " WHERE id = " . $id;
+            $sql = "DELETE FROM " . $table . " WHERE " . $where . " = " . $id;
             $result = $database->query($sql);
-
-            if ($result = $database->query($sql)) {
+            if ($result) {
                 $_SESSION['message'] = "Registro Removido com Sucesso.";
                 $_SESSION['type'] = 'success';
             }
@@ -186,4 +187,5 @@ function remove( $table = null, $id = null ) {
     }
 
     close_database($database);
+    return $result;
 }

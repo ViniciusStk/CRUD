@@ -56,7 +56,7 @@ indexContato($_GET['id']);
                     <td><?php echo $contato['descricao']; ?></td>
                     <td class="actions text-right">
                         <a href="../contato/edit.php?id=<?php echo $pessoa['id']."&idContato=" . $contato['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
-                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-customer="<?php echo $pessoa['id']; ?>">
+                        <a href="#" class="btn btn-sm btn-danger" onclick="confirmExclusaoContato(<?php echo $contato['id']?>, <?php echo $pessoa['id']?>)">
                             <i class="fa fa-trash"></i> Excluir
                         </a>
                     </td>
@@ -68,6 +68,6 @@ indexContato($_GET['id']);
             </tr>
         <?php endif; ?>
         </tbody>
-    </table><!--!CONTATOS-->
+    </table><!--/CONTATOS-->
 
 <?php include(FOOTER_TEMPLATE); ?>

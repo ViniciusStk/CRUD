@@ -62,10 +62,16 @@ function editContato() {
     }
 }
 
-function deleteContato($id = null) {
+/**
+ * remove um contato
+ * @param $id - contato
+ * @param $idPessoa - pessoa, utilizado para retornar a view
+ * @return void
+ */
+function deleteContato($id = null, $idPessoa = null) {
 
     global $contato;
     $contato = remove('contato', $id);
 
-    header('location: ../../view/pessoas/index.php');
+    header('location: ../../view/pessoas/view.php?id=' . $idPessoa);
 }

@@ -1,12 +1,19 @@
 /**
- * Passa os dados do cliente para o Modal, e atualiza o link para exclusão
+ * Confirma se realmente quer excluir
+ * @param id - id do objeto a ser excluido
  */
-$('#delete-modal').on('show.bs.modal', function (event) {
+function confirmExclusaoPessoa(id) {
+    if(confirm("Tem certeza que deseja excluir?")){
+        location.href='../pessoas/delete.php?id=' + id;
+    }
+}
 
-    var button = $(event.relatedTarget);
-    var id = button.data('pessoa');
-
-    var modal = $(this);
-    modal.find('.modal-title').text('Excluir Pessoa #' + id);
-    modal.find('#confirm').attr('href', '../pessoas/delete.php?id=' + id);
-})
+/**
+ * Confirma se realmente quer excluir
+ * @param id - id do objeto a ser excluido
+ */
+function confirmExclusaoContato(id , idPessoa) {
+    if(confirm("Tem certeza que deseja excluir?")){
+        location.href='../contato/delete.php?id=' + id + '&idPessoa=' + idPessoa;
+    }
+}
