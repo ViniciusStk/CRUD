@@ -59,10 +59,10 @@ CREATE TABLE `pessoas` (
 --
 
 INSERT INTO `pessoas` (`id`, `name`, `cpf`) VALUES
-(3, 'enzo', '112333'),
-(4, 'kjjkjkkj', '554326523'),
-(5, 'Leonir', '106742759'),
-(7, 'oioi', '222222');
+(3, 'enzo', '10674275977'),
+(4, 'maicom', '10674275977'),
+(5, 'Leonir', '10674275977'),
+(7, 'leandro', '10674275977');
 
 --
 -- Índices para tabelas despejadas
